@@ -75,7 +75,7 @@ TW_DEVICE_VERSION	:= 0_notnoelchannel
 # TWRP Recovery
 TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_SUPERSU := true
-TW_EXTRA_LANGUAGES := true
+TW_EXTRA_LANGUAGES := false
 TW_USE_NEW_MINADBD := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_RECOVERY_FSTAB := device/samsung/dreamlte/recovery/recovery.fstab
