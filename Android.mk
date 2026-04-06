@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-ifneq ($(filter a3xelte,$(TARGET_DEVICE)),)
+ifneq ($(filter dreamlte,$(TARGET_DEVICE)),)
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/dreamlte
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

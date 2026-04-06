@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/dreamlte
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/twrp_a3xelte.mk
+PRODUCT_MAKEFILES := $(LOCAL_PATH)/twrp_dreamlte.mk
 
-COMMON_LUNCH_CHOICES := twrp_a3xelte-eng
+COMMON_LUNCH_CHOICES := twrp_dreamlte-eng

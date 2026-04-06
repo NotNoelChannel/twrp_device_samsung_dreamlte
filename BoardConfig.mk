@@ -14,24 +14,26 @@
 # limitations under the License.
 #
 
-TARGET_OTA_ASSERT_DEVICE := a3xelte,a3xeltexx
+TARGET_OTA_ASSERT_DEVICE := dreamlte
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/dreamlte
 
 # Platform
-TARGET_ARCH                  := arm64
-TARGET_ARCH_VARIANT          := armv8-a
-TARGET_CPU_ABI               := arm64-v8a
+TARGET_ARCH 				 := arm64
+TARGET_ARCH_VARIANT			 := armv8-a
+TARGET_CPU_ABI				 := arm64-v8a
 TARGET_CPU_ABI2              :=
-TARGET_CPU_VARIANT           := generic
+TARGET_CPU_VARIANT           := cortex-a53
 TARGET_CPU_SMP               := true
-TARGET_2ND_ARCH              := arm
-TARGET_2ND_ARCH_VARIANT      := armv7-a-neon
-TARGET_2ND_CPU_ABI           := armeabi-v7a
-TARGET_2ND_CPU_ABI2          := armeabi
-TARGET_2ND_CPU_VARIANT       := generic
-TARGET_BOARD_PLATFORM        := exynos7580
-TARGET_BOOTLOADER_BOARD_NAME := universal7580
+TARGET_2ND_ARCH				 := arm
+TARGET_2ND_ARCH_VARIANT		 := armv8-a
+TARGET_2ND_CPU_ABI			 := armeabi-v7a
+TARGET_2ND_CPU_ABI2			 := armeabi
+TARGET_2ND_CPU_VARIANT		 := cortex-a53
+TARGET_BOARD_PLATFORM        := exynos8895
+TARGET_BOOTLOADER_BOARD_NAME := universal8895
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
 # Kernel
 TARGET_PREBUILT_KERNEL   := $(LOCAL_PATH)/prebuilt/zImage
@@ -43,15 +45,15 @@ BOARD_KERNEL_PAGESIZE    := 2048
 BOARD_MKBOOTIMG_ARGS     := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dtb $(LOCAL_PATH)/prebuilt/dtb
 
 # Filesystem
-BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 3145728000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 12096372736
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 41943040
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 209715200
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 48234496
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 4400000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 27044851712
 BOARD_FLASH_BLOCK_SIZE             := 131072
 BOARD_HAS_LARGE_FILESYSTEM         := true
 TARGET_USERIMAGES_USE_EXT4         := true
 TARGET_USERIMAGES_USE_F2FS         := true
-RECOVERY_SDCARD_ON_DATA            := true
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -60,30 +62,20 @@ TARGET_COPY_OUT_PRODUCT := product
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Bootloader
-TARGET_NO_BOOTLOADER    := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_HAS_DOWNLOAD_MODE    := true
-TW_EXCLUDE_NANO 		:= true
-TW_EXCLUDE_BASH 		:= true
+TARGET_NO_BOOTLOADER		     := true
+TW_NO_REBOOT_BOOTLOADER			 := true
+TW_HAS_DOWNLOAD_MODE		     := true
 # Display & Graphics
-TW_MAX_BRIGHTNESS 		         := 255
-TW_DEFAULT_BRIGHTNESS 			 := 162
+TW_MAX_BRIGHTNESS		   	     := 36600
+TW_DEFAULT_BRIGHTNESS  			 := 15300
 TW_THEME                         := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_BRIGHTNESS_PATH               := "/sys/devices/14800000.dsim/backlight/panel/brightness"
+TW_BRIGHTNESS_PATH               := "/sys/class/backlight/panel/brightness"
 TW_DEVICE_VERSION	:= 0_notnoelchannel
 # TWRP Recovery
-TW_EXCLUDE_SUPERSU          := false
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
+TW_USE_NEW_MINADBD := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-TARGET_RECOVERY_FSTAB := device/samsung/a3xelte/recovery/recovery.fstab
-
-# SHRP Recovery
-SHRP_MAINTAINER := notnoelchannel
-SHRP_EXPRESS    := true
-SHRP_LITE       := true
-SHRP_INTERNAL   := /sdcard
-SHRP_REC        := /dev/block/platform/13540000.dwmmc0/by-name/RECOVERY
-SHRP_EXTERNAL   := /external_sd
-SHRP_OTG        := /usb_otg
-SHRP_DEVICE_CODE := a3xelte
-
+TARGET_RECOVERY_FSTAB := device/samsung/dreamlte/recovery/recovery.fstab
