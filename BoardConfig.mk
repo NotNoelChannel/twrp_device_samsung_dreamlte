@@ -62,19 +62,21 @@ TARGET_COPY_OUT_PRODUCT := product
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Bootloader
-TARGET_NO_BOOTLOADER		     := true
-TW_NO_REBOOT_BOOTLOADER			 := true
-TW_HAS_DOWNLOAD_MODE		     := true
+TARGET_NO_BOOTLOADER := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
 # Display & Graphics
-TW_MAX_BRIGHTNESS		   	     := 36600
-TW_DEFAULT_BRIGHTNESS  			 := 15300
-TW_THEME                         := portrait_hdpi
+TW_MAX_BRIGHTNESS := 36600
+TW_DEFAULT_BRIGHTNESS := 15300
+TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_BRIGHTNESS_PATH               := "/sys/class/backlight/panel/brightness"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_DEVICE_VERSION	:= 0_notnoelchannel
 # TWRP Recovery
 TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_SUPERSU := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE := true
 TW_EXTRA_LANGUAGES := false
 TW_USE_NEW_MINADBD := true
 BOARD_SUPPRESS_SECURE_ERASE := true
