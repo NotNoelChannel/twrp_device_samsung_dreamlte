@@ -35,14 +35,25 @@ TARGET_BOOTLOADER_BOARD_NAME := universal8895
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Kernel
-TARGET_PREBUILT_KERNEL   := $(LOCAL_PATH)/prebuilt/zImage
-TARGET_PREBUILT_DTB      := $(LOCAL_PATH)/prebuilt/dtb
-BOARD_KERNEL_CMDLINE     :=	buildvariant=eng
-BOARD_KERNEL_BASE        := 0x10000000
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_KERNEL_PAGESIZE    := 2048
-BOARD_MKBOOTIMG_ARGS     := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dtb $(LOCAL_PATH)/prebuilt/dtb
+# Kernel custom bootimg
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
+
+# Kernel config
+TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
+TARGET_KERNEL_CONFIG := exynos8895-dreamlte_defconfig
+
+TARGET_KERNEL_ADDITIONAL_FLAGS := HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_IMAGE_NAME := Image
+#BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 41943040
