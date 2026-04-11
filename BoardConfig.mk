@@ -35,6 +35,8 @@ TARGET_BOOTLOADER_BOARD_NAME := universal8895
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
 # Kernel config
 TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
 TARGET_KERNEL_CONFIG := exynos8895-dreamlte_defconfig
